@@ -24,12 +24,31 @@ Pet.prototype.walk = function walk() {
 
 const MinHunger = 0
 
-Pet.prototype.feed = function feed () {
+Pet.prototype.feed = function feed() {
     this.hunger -= 3;
     if (this.hunger < MinHunger) {
         this.hunger = MinHunger;
     }
-}
+};
+
+Pet.prototype.checkUp = function checkUp() {
+
+    if (this.fitness <= 3 && this.hunger >= 5) {
+        return "I need a walk and I am hungry";
+    } else if (this.fitness > 3 && this.hunger < 5) {
+        return "I feel great!";
+    } else if (this.fitness <= 3) {
+        return "I need a walk";
+    } else if (this.hunger >= 5) {
+        return "I am hungry";
+    } else if (this.fitness > 3) {
+        return "I feel great!";
+    } else if (this.hunger < 5) {
+        return "I feel great!";
+    }
+};
+
+
 
 
 module.exports = Pet;

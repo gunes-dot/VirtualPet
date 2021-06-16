@@ -67,8 +67,15 @@ describe('constructor', () => {
     expect (pet.hunger).toEqual(0);
   });
 
-  });
-  
+  it ('says when the pet needs a walk and food', () => {
+    const pet = new Pet('fido');
 
+    pet.fitness = 2;
+    pet.hunger = 6;
+    pet.checkUp();
 
+    expect(pet.checkUp()).toEqual(expect.stringContaining("I need a walk and I am hungry"));
+    
 
+  }); 
+});
