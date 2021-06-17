@@ -78,4 +78,39 @@ describe('constructor', () => {
     
 
   }); 
+
+  it ('says if the pet is alive', () => {
+    const pet = new Pet('fido');
+
+    pet.fitness = -1
+    pet.hunger = 11
+    pet.age = 31
+
+    expect(pet.isAlive).toBe(false);
+  });
+
+  it ('othrows an error if the pet is not alive', () => {
+    const pet = new Pet('fido');
+
+    pet.fitness = -1
+    pet.hunger = 11
+    pet.age = 31
+
+
+    expect(() => pet.growUp()).toThrow('Your pet is no longer alive :(');
+
+  
+
 });
+
+it ('Adopts a child into an array', () => {
+  const pet = new Pet('fido');
+  const Amelia = new Pet('Amelia');
+
+  pet.adoptChild(Amelia);
+
+  expect(pet.children).toContain(Amelia);
+});
+
+
+})
